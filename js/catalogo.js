@@ -48,10 +48,12 @@ const BESTSELLER_IDS = [1, 2, 5, 12];
 // ==========================================
 async function loadCatalogData() {
     try {
-        // CORRECCIÓN CLAVE: Ruta relativa desde js/ hacia data/
+        // CORRECCIÓN: Usamos '../' para subir desde la carpeta 'js/' a la raíz, y luego entrar a 'data/'
         const response = await fetch('../data/products.json');
         
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         
         const data = await response.json();
         allProducts = data.products;
@@ -70,8 +72,13 @@ async function loadCatalogData() {
             productsGrid.innerHTML = `
                 <div class="no-results" style="grid-column: 1/-1;">
                     <h3>Error cargando el catálogo</h3>
-                    <p>Verifica que el archivo exista en: data/products.json</p>
-                    <p style="font-size:0.8rem; color:#999;">Nota: Si abres el HTML directamente desde tu PC (file://), el navegador bloqueará la carga. Usa Live Server.</p>
+                    <p>No se pudo encontrar: <code>../data/products.json</code></p>
+                    <p style="font-size:0.8rem; color:#999; margin-top:10px;">
+                        Verifica que:<br>
+                        1. La carpeta se llame exactamente <strong>data</strong> (minúscula).<br>
+                        2. El archivo se llame <strong>products.json</strong>.<br>
+                        3. Estés usando un servidor (Live Server o GitHub Pages), no file://.
+                    </p>
                 </div>`;
         }
     }

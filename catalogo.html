@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - D'Pame | Polos Personalizados</title>
+    <!-- Rutas corregidas a carpeta css/ -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/catalogo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">D'Pame</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="catalogo.html" class="active">Catálogo</a></li>
+            <li><a href="exportacion.html">Exportación</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <button class="cart-btn" id="cart-btn">
+            <i class="fas fa-shopping-cart"></i> Carrito <span id="cart-count">0</span>
+        </button>
+    </div>
+</nav>
+
+<!-- CATÁLOGO -->
+<section class="catalog-section">
+    <div class="container">
+        <div class="catalog-header">
+            <h2>Nuestra Colección</h2>
+            <p>Explora nuestros estilos premium. Pedido mínimo: 50 unidades por diseño.</p>
+        </div>
+
+        <!-- BARRA DE BÚSQUEDA Y ORDEN -->
+        <div class="catalog-toolbar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar productos...">
+            </div>
+            <select id="sortSelect" class="sort-select">
+                <option value="default">Ordenar por: Relevancia</option>
+                <option value="price-asc">Precio: Menor a Mayor</option>
+                <option value="price-desc">Precio: Mayor a Menor</option>
+                <option value="name-asc">Nombre: A-Z</option>
+            </select>
+        </div>
+
+        <!-- FILTROS -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="tshirt">Camisetas</button>
+            <button class="filter-btn" data-filter="crop">Tops Cortos</button>
+            <button class="filter-btn" data-filter="oversized">Oversized</button>
+            <button class="filter-btn" data-filter="polo">Polos y Camisas</button>
+            <button class="filter-btn" data-filter="tank">Tirantes</button>
+            <button class="filter-btn" data-filter="longsleeve">Manga Larga</button>
+        </div>
+
+        <!-- CONTADOR -->
+        <p id="productsCount" class="products-count">Cargando productos...</p>
+
+        <!-- GRID DE PRODUCTOS -->
+        <div class="product-grid" id="productsGrid"></div>
+
+        <!-- SIN RESULTADOS -->
+        <div id="noResults" class="no-results" style="display:none;">
+            <i class="fas fa-search" style="font-size:3rem; color:#ccc; margin-bottom:15px;"></i>
+            <h3>No encontramos productos</h3>
+            <p>Intenta ajustar tus filtros o términos de búsqueda.</p>
+        </div>
+    </div>
+</section>
+
+<!-- MODAL DE PERSONALIZACIÓN -->
+<div class="customization-modal" id="customizationModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeCustomizationModal()">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <div class="modal-body">
+            <!-- COLUMNA IZQUIERDA: PREVIEW -->
+            <div class="modal-preview-column">
+                <h3>Vista Previa del Diseño</h3>
+                <div class="preview-container" id="mainPreviewContainer">
+                    <img id="mainProductImage" src="" alt="Producto" class="preview-main-image">
+                    
+                    <!-- ZONA PUNTEADA -->
+                    <div class="customization-zone hidden" id="customizationZone">
+                        <span class="zone-hint">Área de Diseño Permitida</span>
+                    </div>
+
+                    <!-- LOGO SUBIDO -->
+                    <div class="logo-wrapper" id="logoWrapper1" style="display:none;">
+                        <img id="uploadedLogoImg1" src="" alt="Logo">
+                        <button class="logo-remove-btn" onclick="removeLogo('logoWrapper1')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SECCIÓN DE SUBIDA -->
+                <div class="upload-section hidden" id="uploadSection">
+                    <button id="btnToggleUpload" class="toggle-upload-btn" onclick="toggleCustomizationZone()">
+                        <i class="fas fa-paint-brush"></i> ¿Quieres añadir tu propio diseño? Click aquí
+                    </button>
+                    
+                    <div class="upload-area">
+                        <label for="imageUpload1" class="upload-label">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Paso 1: Sube tu logo (PNG/JPG)</span>
+                            <small>Máx 5MB</small>
+                        </label>
+                        <input type="file" id="imageUpload1" accept="image/*" onchange="handleImageUpload(this, 'logoWrapper1', 'uploadedLogoImg1')" style="display:none;">
+                    </div>
+
+                    <p style="text-align:center; font-size:0.85rem; color:var(--text-light); margin-top:10px;">
+                        <i class="fas fa-mouse-pointer"></i> Arrastra el logo sobre el polo para ubicarlo.
+                    </p>
+
+                    <div class="zoom-controls">
+                        <span>Zoom:</span>
+                        <button onclick="adjustZoom('logoWrapper1', -0.1)"><i class="fas fa-minus"></i></button>
+                        <button onclick="adjustZoom('logoWrapper1', 0.1)"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMNA DERECHA: CONFIGURACIÓN -->
+            <div class="modal-config-column">
+                <h2 id="modalProductName">Nombre Producto</h2>
+                <p class="modal-price" id="modalProductPrice">$0.00 USD</p>
+                <p class="modal-description" id="modalProductDesc">Descripción...</p>
+
+                <!-- COLOR -->
+                <div class="config-section">
+                    <h4><i class="fas fa-palette"></i> Color:</h4>
+                    <div class="color-selector" id="colorSelector"></div>
+                </div>
+
+                <!-- TALLA -->
+                <div class="config-section">
+                    <h4><i class="fas fa-ruler"></i> Talla Base:</h4>
+                    <select id="sizeSelector" class="size-select">
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+
+                <!-- CANTIDAD -->
+                <div class="config-section">
+                    <h4><i class="fas fa-boxes"></i> Cantidad (Min 50):</h4>
+                    <div class="quantity-controls">
+                        <button onclick="adjustQuantity(-10)">-10</button>
+                        <button onclick="adjustQuantity(-1)">-</button>
+                        <input type="number" id="quantityInput" value="50" min="50">
+                        <button onclick="adjustQuantity(1)">+</button>
+                        <button onclick="adjustQuantity(10)">+10</button>
+                    </div>
+                </div>
+
+                <!-- DESCUENTOS -->
+                <div class="config-section">
+                    <h4><i class="fas fa-percentage"></i> Descuentos por Volumen</h4>
+                    <div class="discount-tiers">
+                        <div class="tier" id="tier-1">
+                            <strong>50 - 99 uds</strong>
+                            <span>5% OFF</span>
+                        </div>
+                        <div class="tier" id="tier-2">
+                            <strong>100 - 199 uds</strong>
+                            <span>10% OFF</span>
+                        </div>
+                        <div class="tier" id="tier-3">
+                            <strong>200+ uds</strong>
+                            <span>15% OFF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOTAL -->
+                <div class="modal-total-section">
+                    <div class="total-row">
+                        <span>Total Estimado:</span>
+                        <span class="total-price" id="modalTotalPrice">$0.00 USD</span>
+                    </div>
+                    <span class="savings-display" id="savingsDisplay" style="display:none;"></span>
+                </div>
+
+                <button class="add-customized-btn" onclick="addCustomizedToCart()">
+                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>D'Pame</h4>
+                <p>Premium customized apparel for the world.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="catalogo.html">New Arrivals</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> hello@dpame.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 D'Pame. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- CARRITO SIDEBAR -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+        <h3>Tu Carrito</h3>
+        <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cart-items-container">
+        <p id="empty-cart-msg" style="text-align:center; color:#999; padding:40px 0;">Tu carrito está vacío.</p>
+    </div>
+    <div class="cart-footer">
+        <div id="discount-display" style="display:none; margin-bottom:10px;"></div>
+        <div class="cart-total">
+            <span>Total Estimado:</span>
+            <span id="cart-total-price">$0.00 USD</span>
+        </div>
+        <button class="checkout-btn" id="checkout-btn">
+            <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+        </button>
+    </div>
+</aside>
+
+<!-- 🤖 CHATBOT WIDGET -->
+<div class="chatbot-widget">
+    <div class="chatbot-window" id="chat-window">
+        <div class="chatbot-header">
+            <div class="chatbot-header-info">
+                <h4>D'Pame Assistant</h4>
+                <small>En línea • Respuesta inmediata</small>
+            </div>
+            <button id="chat-close" class="chat-close-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-body" id="chat-messages"></div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." autocomplete="off">
+            <button id="chat-send" class="chat-send-btn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+    <div class="chatbot-toggle" id="chat-toggle">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+</div>
+
+<!-- SCRIPTS EN ORDEN CORRECTO CON RUTAS DE CARPETA js/ -->
+<script src="js/main.js"></script>
+<script src="js/catalogo.js"></script>
+<script src="js/chatbot.js"></script>
+
+<script>
+// Lógica de ordenamiento
+document.addEventListener('DOMContentLoaded', () => {
+    const sortSelect = document.getElementById('sortSelect');
+    if (sortSelect) {
+        sortSelect.addEventListener('change', function() {
+            // Verificamos si allProducts existe (definido en catalogo.js)
+            if (typeof allProducts === 'undefined' || !allProducts.length) return;
+            
+            const activeFilterBtn = document.querySelector('.filter-btn.active');
+            const activeFilter = activeFilterBtn ? activeFilterBtn.dataset.filter : 'all';
+            let filtered = activeFilter === 'all' ? [...allProducts] : allProducts.filter(p => p.category === activeFilter);
+            
+            switch(this.value) {
+                case 'price-asc':
+                    filtered.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-desc':
+                    filtered.sort((a, b) => b.price - a.price);
+                    break;
+                case 'name-asc':
+                    filtered.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+            }
+            
+            if (typeof renderProducts === 'function') renderProducts(filtered);
+        });
+    }
+});
+</script>
+</body>
+</html>

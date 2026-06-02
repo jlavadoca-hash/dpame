@@ -20,9 +20,9 @@
       "allowLogoUpload": true,
       "availableColors": [
         { "name": "Blanco", "hex": "#ffffff", "image": "data/assets/polo1.jpeg" },
-        { "name": "Verde Menta", "hex": "#bbf7d0", "image": "data/assets/polo1-.jpeg" },
-        { "name": "Rosa Pastel", "hex": "#fbcfe8", "image": "data/assets/polo1-2.jpeg" },
-        { "name": "Amarillo Suave", "hex": "#fef9c3", "image": "data/assets/polo1-3.jpeg" }
+        { "name": "Rosa Pastel", "hex": "#fbcfe8", "image": "data/assets/polo1-.jpeg" },
+        { "name": "Amarillo Suave", "hex": "#fef9c3", "image": "data/assets/polo1-2.jpeg" },
+        { "name": "Verde Menta", "hex": "#bbf7d0", "image": "data/assets/polo1-3.jpeg" }
       ]
     },
     {

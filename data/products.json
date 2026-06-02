@@ -19,10 +19,10 @@
       "stripeLink": "https://buy.stripe.com/test_LINK_1",
       "allowLogoUpload": true,
       "availableColors": [
-        { "name": "Blanco", "hex": "#ffffff", "image": "data/assets/polo1.png" },
-        { "name": "Verde Menta", "hex": "#bbf7d0", "image": "data/assets/polo1-1.png" },
-        { "name": "Rosa Pastel", "hex": "#fbcfe8", "image": "data/assets/polo1-2.png" },
-        { "name": "Amarillo Suave", "hex": "#fef9c3", "image": "data/assets/polo1-3.png" }
+        { "name": "Blanco", "hex": "#ffffff", "image": "data/assets/polo1.jpeg" },
+        { "name": "Verde Menta", "hex": "#bbf7d0", "image": "data/assets/polo1-.jpeg" },
+        { "name": "Rosa Pastel", "hex": "#fbcfe8", "image": "data/assets/polo1-2.jpeg" },
+        { "name": "Amarillo Suave", "hex": "#fef9c3", "image": "data/assets/polo1-3.jpeg" }
       ]
     },
     {

@@ -15,7 +15,7 @@
       "price": 12.50,
       "minOrder": 50,
       "image": "data/assets/polo1.png",
-      "description": "Adorable camiseta color crema con estampado de rana alada y destellos mágicos. Diseño artístico juguetón sobre algodón premium. Perfecta para uso casual con personalidad y estilo único.",
+      "description": "Adorable camiseta color crema con estampado de rana alada y destellos mágicos. Diseño artístico juguetón sobre algodón premium.",
       "stripeLink": "https://buy.stripe.com/test_LINK_1",
       "allowLogoUpload": true,
       "availableColors": [
@@ -32,7 +32,7 @@
       "price": 13.00,
       "minOrder": 50,
       "image": "data/assets/polo2.jpg",
-      "description": "Elegante top corto tipo bustier blanco con detalle fruncido central y tirantes ajustables. Tela calada femenina ideal para looks sofisticados de verano o eventos especiales.",
+      "description": "Elegante top corto tipo bustier blanco con detalle fruncido central y tirantes ajustables.",
       "stripeLink": "https://buy.stripe.com/test_LINK_2"
     },
     {
@@ -42,7 +42,7 @@
       "price": 11.50,
       "minOrder": 50,
       "image": "data/assets/polo3.jpg",
-      "description": "Top corto de tirantes con rayas horizontales negras y blancas. Diseño náutico clásico atemporal con tirantes finos ajustables. Esencial versátil para cualquier guardarropa.",
+      "description": "Top corto de tirantes con rayas horizontales negras y blancas. Diseño náutico clásico.",
       "stripeLink": "https://buy.stripe.com/test_LINK_3"
     },
     {
@@ -52,7 +52,7 @@
       "price": 12.00,
       "minOrder": 50,
       "image": "data/assets/polo4.jpg",
-      "description": "Camisa blanca de manga corta con cuello formal y botones frontales. Diseño limpio y profesional perfecto para looks smart casual o branding corporativo minimalista.",
+      "description": "Camisa blanca de manga corta con cuello formal y botones frontales.",
       "stripeLink": "https://buy.stripe.com/test_LINK_4"
     },
     {
@@ -62,7 +62,7 @@
       "price": 14.00,
       "minOrder": 50,
       "image": "data/assets/polo5.jpg",
-      "description": "Camiseta oversized color crema con ribete azul marino en cuello y mangas. Estilo ringer clásico con corte relajado y estética urbana. Cómoda, fresca y effortlessly cool.",
+      "description": "Camiseta oversized color crema con ribete azul marino en cuello y mangas.",
       "stripeLink": "https://buy.stripe.com/test_LINK_5"
     },
     {
@@ -72,7 +72,7 @@
       "price": 15.00,
       "minOrder": 50,
       "image": "data/assets/polo6.jpg",
-      "description": "Camiseta oversized gris con finas rayas blancas horizontales. Corte boxy contemporáneo con hombros caídos. Estilo urbano moderno para personas con actitud fashion-forward.",
+      "description": "Camiseta oversized gris con finas rayas blancas horizontales.",
       "stripeLink": "https://buy.stripe.com/test_LINK_6"
     },
     {
@@ -82,7 +82,7 @@
       "price": 16.50,
       "minOrder": 50,
       "image": "data/assets/polo7.jpg",
-      "description": "Top blanco tipo babydoll con escote cuadrado y mangas volantadas. Silueta femenina con falda acampanada. Ideal para entornos corporativos casuales o eventos especiales.",
+      "description": "Top blanco tipo babydoll con escote cuadrado y mangas volantadas.",
       "stripeLink": "https://buy.stripe.com/test_LINK_7"
     },
     {
@@ -92,7 +92,7 @@
       "price": 17.50,
       "minOrder": 50,
       "image": "data/assets/polo8.jpg",
-      "description": "Camiseta básica oversized en rosa suave con corte relajado. Diseño minimalista en algodón premium. Perfecta para branding corporativo o elegancia casual diaria.",
+      "description": "Camiseta básica oversized en rosa suave con corte relajado.",
       "stripeLink": "https://buy.stripe.com/test_LINK_8"
     },
     {
@@ -102,7 +102,7 @@
       "price": 10.00,
       "minOrder": 50,
       "image": "data/assets/polo9.jpg",
-      "description": "Tirante halter con lunares negros y detalle de lazada en el cuello. Diseño retro inspirador con ajuste moderno. Ideal para colecciones de verano y uso casual divertido.",
+      "description": "Tirante halter con lunares negros y detalle de lazada en el cuello.",
       "stripeLink": "https://buy.stripe.com/test_LINK_9"
     },
     {
@@ -112,7 +112,7 @@
       "price": 11.00,
       "minOrder": 50,
       "image": "data/assets/polo10.jpg",
-      "description": "Tirante deportivo gris con espalda racerback, dobladillo crudo y cordones laterales. Diseño atlético para estilos de vida activos. Cómodo, transpirable y con estilo desenfadado.",
+      "description": "Tirante deportivo gris con espalda racerback y cordones laterales.",
       "stripeLink": "https://buy.stripe.com/test_LINK_10"
     },
     {
@@ -122,7 +122,7 @@
       "price": 15.50,
       "minOrder": 50,
       "image": "data/assets/polo11.jpg",
-      "description": "Camiseta de manga larga color crema con estampado multicolor de personajes animados. Diseño divertido y versátil perfecto para todas las estaciones. Confort de algodón premium.",
+      "description": "Camiseta de manga larga color crema con estampado multicolor de personajes.",
       "stripeLink": "https://buy.stripe.com/test_LINK_11"
     },
     {
@@ -132,7 +132,7 @@
       "price": 13.50,
       "minOrder": 50,
       "image": "data/assets/polo12.jpg",
-      "description": "Camiseta off-shoulder color crema con bordado de manzana roja. Diseño juguetón pero sofisticado. Mezcla de algodón suave perfecta para uso diario con personalidad artística.",
+      "description": "Camiseta off-shoulder color crema con bordado de manzana roja.",
       "stripeLink": "https://buy.stripe.com/test_LINK_12"
     },
     {
@@ -142,7 +142,7 @@
       "price": 12.00,
       "minOrder": 50,
       "image": "data/assets/polo13.jpg",
-      "description": "Tirante con escote cuadrado y estampado floral delicado en tonos pasteles con borde rosado. Diseño romántico y femenino con detalles de volantes. Ideal para colecciones primavera-verano.",
+      "description": "Tirante con escote cuadrado y estampado floral delicado en tonos pasteles.",
       "stripeLink": "https://buy.stripe.com/test_LINK_13"
     },
     {
@@ -152,7 +152,7 @@
       "price": 13.00,
       "minOrder": 50,
       "image": "data/assets/polo14.jpg",
-      "description": "Top corto oversized en azul marino con corte relajado. Esencial de street style con longitud trendy. Cómodo, fresco y con actitud urbana desenfadada.",
+      "description": "Top corto oversized en azul marino con corte relajado.",
       "stripeLink": "https://buy.stripe.com/test_LINK_14"
     },
     {
@@ -162,7 +162,7 @@
       "price": 16.00,
       "minOrder": 50,
       "image": "data/assets/polo15.jpg",
-      "description": "Henley de manga larga color crema con estampado vibrante de personajes por toda la prenda. Sofisticación casual meets diseño lúdico. Detalle de botones para styling versátil.",
+      "description": "Henley de manga larga color crema con estampado vibrante de personajes.",
       "stripeLink": "https://buy.stripe.com/test_LINK_15"
     },
     {
@@ -172,7 +172,7 @@
       "price": 18.00,
       "minOrder": 50,
       "image": "data/assets/polo16.jpg",
-      "description": "Top asimétrico de un solo hombro con drapeado elegante y textura fruncida. Diseño moderno ideal para eventos deportivos corporativos o branding de estilo de vida activo.",
+      "description": "Top asimétrico de un solo hombro con drapeado elegante y textura fruncida.",
       "stripeLink": "https://buy.stripe.com/test_LINK_16"
     }
   ],
@@ -187,27 +187,20 @@
       { "name": "Rosa Pastel", "hex": "#fbcfe8", "class": "bg-pink-200" },
       { "name": "Azul Pastel", "hex": "#bfdbfe", "class": "bg-blue-200" },
       { "name": "Verde Menta", "hex": "#bbf7d0", "class": "bg-green-200" },
-      { "name": "Amarillo Suave", "hex": "#fef9c3", "class": "bg-yellow-100" },
-      { "name": "Lavanda", "hex": "#ddd6fe", "class": "bg-purple-200" },
-      { "name": "Durazno", "hex": "#ffedd5", "class": "bg-orange-100" }
+      { "name": "Amarillo Suave", "hex": "#fef9c3", "class": "bg-yellow-100" }
     ],
     "neutrals": [
       { "name": "Blanco", "hex": "#ffffff", "class": "bg-white border" },
       { "name": "Crema", "hex": "#fef3c7", "class": "bg-amber-50" },
-      { "name": "Gris Claro", "hex": "#e5e7eb", "class": "bg-gray-200" },
       { "name": "Gris", "hex": "#6b7280", "class": "bg-gray-500" },
-      { "name": "Negro", "hex": "#000000", "class": "bg-black" },
-      { "name": "Azul Marino", "hex": "#1e3a8a", "class": "bg-blue-900" }
+      { "name": "Negro", "hex": "#000000", "class": "bg-black" }
     ],
     "vibrant": [
       { "name": "Rojo", "hex": "#ef4444", "class": "bg-red-500" },
       { "name": "Azul Royal", "hex": "#2563eb", "class": "bg-blue-600" },
-      { "name": "Verde", "hex": "#22c55e", "class": "bg-green-500" },
-      { "name": "Morado", "hex": "#9333ea", "class": "bg-purple-600" },
-      { "name": "Naranja", "hex": "#f97316", "class": "bg-orange-500" },
-      { "name": "Fucsia", "hex": "#ec4899", "class": "bg-pink-500" }
+      { "name": "Verde", "hex": "#22c55e", "class": "bg-green-500" }
     ]
   },
   "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
-  "patterns": ["Liso", "Rayado", "Estampado Gráfico", "Bordado", "Lunares", "Floral", "Personajes Animados", "Ringer"]
+  "patterns": ["Liso", "Rayado", "Estampado Gráfico", "Bordado", "Lunares", "Floral"]
 }

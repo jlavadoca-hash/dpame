@@ -48,15 +48,15 @@ const BESTSELLER_IDS = [1, 2, 5, 12];
 // ==========================================
 async function loadCatalogData() {
     try {
-        // CORRECCIÓN: Usamos '../' para subir desde la carpeta 'js/' a la raíz, y luego entrar a 'data/'
-        const response = await fetch('../data/products.json');
+        // Usamos './' para asegurar que busque desde la raíz del repositorio en GitHub
+        const response = await fetch('./data/products.json');
         
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error('No se pudo cargar el JSON');
         
         const data = await response.json();
-        allProducts = data.products;
+        
+        // Asignación segura
+        allProducts = data.products || [];
         categoriesData = data.categories || {};
         
         // Asegurar minOrder
@@ -64,21 +64,16 @@ async function loadCatalogData() {
         
         renderProducts(allProducts);
         updateProductCount(allProducts.length);
-        console.log("✅ Catálogo cargado correctamente:", allProducts.length, "productos");
+        console.log("✅ Catálogo cargado:", allProducts.length, "productos");
         
     } catch (error) {
-        console.error('❌ Error cargando productos:', error);
+        console.error('❌ Error:', error);
+        // Mensaje más amigable si falla
         if(productsGrid) {
             productsGrid.innerHTML = `
                 <div class="no-results" style="grid-column: 1/-1;">
-                    <h3>Error cargando el catálogo</h3>
-                    <p>No se pudo encontrar: <code>../data/products.json</code></p>
-                    <p style="font-size:0.8rem; color:#999; margin-top:10px;">
-                        Verifica que:<br>
-                        1. La carpeta se llame exactamente <strong>data</strong> (minúscula).<br>
-                        2. El archivo se llame <strong>products.json</strong>.<br>
-                        3. Estés usando un servidor (Live Server o GitHub Pages), no file://.
-                    </p>
+                    <h3>Ups, algo salió mal</h3>
+                    <p>No pudimos cargar los productos. Por favor recarga la página.</p>
                 </div>`;
         }
     }
@@ -110,9 +105,6 @@ function renderProducts(products) {
             tagHtml = '<span class="product-tag" style="background-color: #10b981;">Nuevo</span>';
         }
 
-        // Nota: Las imágenes vienen del JSON como "data/assets/polo1.png"
-        // Esto funciona perfecto si el HTML está en la raíz.
-        
         productCard.innerHTML = `
             <div class="product-image">
                 <img src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/300?text=Sin+Imagen'">
@@ -473,7 +465,7 @@ window.addCustomizedToCart = function() {
 
 // Event Listeners Globales
 document.addEventListener('DOMContentLoaded', () => {
-    loadCatalogData(); // Iniciar carga
+    loadCatalogData();
     
     if(filterButtons) {
         filterButtons.forEach(btn => {
